@@ -58,7 +58,7 @@ app.post('/register', (req, res) => {
   if (username.length < 6 || username.length > 20) {
     return res
       .status(400)
-      .send('Uername must be between 6 and 20 characters');
+      .send('Username must be between 6 and 20 characters');
   }
 
   //required input is present
@@ -79,7 +79,7 @@ app.post('/register', (req, res) => {
   if (!password.match(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)) {
     return res
       .status(400)
-      .send('Password must be contain at least one digit');
+      .send('Password must contain at least one digit');
   }
 
   //required input is present
@@ -148,10 +148,6 @@ app.delete('/user/:userId', (req, res) => {
 
 app.get('/user', (req, res) => {
   res.json(users);
-});
-
-app.get('/', (req, res) => {
-  res.send('A GET request');
 });
 
 //if 4 params, knows error is first; 2 or 3 params, knows req, res (next), need to have next despiten not using it (to equal 4)
